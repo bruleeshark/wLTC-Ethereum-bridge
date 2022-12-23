@@ -5,22 +5,26 @@
   </head>
   <body>
     <h1>Litecoin Token Bridge</h1>
-<form id="deposit-form">
-  <label for="address">Ethereum Address:</label>
-  <input type="text" id="address" name="address" required>
-  <br>
-  <label for="amount">Amount (Litecoin):</label>
-  <input type="text" id="amount" name="amount" required>
-  <br>
-  <button type="submit">Deposit</button>
-</form>
-<hr>
-<form id="burn-form">
-  <label for="address">Ethereum Address:</label>
-  <input type="text" id="address" name="address" required>
-  <br>
-  <label for="amount">Amount (wLTC):</label>
-  <input type="text" id="amount" name="amount" required>
-  <br>
-  <button type="submit">Burn</button>
-</form>
+    <form id="deposit-form">
+      <label for="deposit-address">Ethereum Address:</label>
+      <input type="text" id="deposit-address" name="address" required>
+      <br>
+      <label for="deposit-amount">Amount (Litecoin):</label>
+      <input type="text" id="deposit-amount" name="amount" required>
+      <br>
+      <button type="submit">Deposit</button>
+      <div id="deposit-message"></div>
+    </form>
+    <hr>
+    <form id="burn-form">
+      <label for="burn-address">Ethereum Address:</label>
+      <input type="text" id="burn-address" name="address" required>
+      <br>
+      <label for="burn-amount">Amount (wLTC):</label>
+      <input type="text" id="burn-amount" name="amount" required>
+      <br>
+      <button type="submit">Burn</button>
+      <div id="burn-message"></div>
+    </form>
+  </body>
+</html>
