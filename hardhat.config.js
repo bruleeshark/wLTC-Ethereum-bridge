@@ -1,6 +1,14 @@
 const { readFileSync } = require("fs");
 const { join } = require("path");
 
+// Load values from .env file
+require("dotenv").config();
+
+// Define constants for file paths and contract names
+const PATH_SOURCES = "contracts";
+const PATH_SECRETS = join(__dirname, "../.secret");
+const FILE_CONTRACTS = "LitecoinToken.sol";
+
 module.exports = {
   solidity: {
     version: "0.8.0",
@@ -13,20 +21,18 @@ module.exports = {
   },
   networks: {
     rinkeby: {
-      url: "https://rinkeby.infura.io/v3/YOUR-INFURA-API-KEY",
+      url: `https://rinkeby.infura.io/v3/${process.env.INFURA_API_KEY}`,
       accounts: [
         {
-          privateKey: readFileSync(join(__dirname, "../.secret/rinkeby_account_1"), "utf-8").trim()
+          privateKey: readFileSync(join(PATH_SECRETS, "rinkeby_account_1"), "utf-8").trim()
         }
       ]
     }
   },
   paths: {
-    sources: "contracts"
+    sources: PATH_SOURCES
   },
   files: {
-    contracts: [
-      "LitecoinToken.sol"
-    ]
+    contracts: [FILE_CONTRACTS]
   }
 };
